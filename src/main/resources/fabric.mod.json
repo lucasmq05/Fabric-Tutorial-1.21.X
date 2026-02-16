@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "tutorialmod",
+	"version": "${version}",
+	"name": "Tutorial Mod",
+	"description": "Esse é um mod teste pra aprendizagem!",
+	"authors": [
+		"Luvas!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/tutorialmod/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.luvas.tutorialmod.TutorialMod"
+		],
+		"fabric-datagen": [
+			"net.luvas.tutorialmod.TutorialModDataGenerator"
+		],
+		"client": [
+			"net.luvas.tutorialmod.TutorialModClient"
+		]
+	},
+	"mixins": [
+		"tutorialmod.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.18.4",
+		"minecraft": "~1.21",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
