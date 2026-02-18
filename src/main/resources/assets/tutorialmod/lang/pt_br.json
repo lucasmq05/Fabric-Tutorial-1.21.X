@@ -1,4 +1,7 @@
 {
   "item.tutorialmod.pink_garnet": "Granada Rosa",
-  "item.tutorialmod.raw_pink_garnet": "Granada Rosa Bruta"
+  "item.tutorialmod.raw_pink_garnet": "Granada Rosa Bruta",
+
+  "block.tutorialmod.pink_garnet_block": "Bloco de Granada Rosa",
+  "block.tutorialmod.raw_pink_garnet_block": "Bloco de Granada Rosa Bruta"
 }
