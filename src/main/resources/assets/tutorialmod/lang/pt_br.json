@@ -1,9 +1,13 @@
 {
   "item.tutorialmod.pink_garnet": "Granada Rosa",
   "item.tutorialmod.raw_pink_garnet": "Granada Rosa Bruta",
+  "item.tutorialmod.chisel": "Cinzel",
 
   "block.tutorialmod.pink_garnet_block": "Bloco de Granada Rosa",
   "block.tutorialmod.raw_pink_garnet_block": "Bloco de Granada Rosa Bruta",
+
+  "block.tutorialmod.pink_garnet_ore": "Minério de Granada Rosa",
+  "block.tutorialmod.pink_garnet_deepslate_ore": "Minério de Granada Rosa de Ardosiabissal",
 
   "itemgroup.tutorialmod.pink_garnet_items": "Items de Granada Rosa",
   "itemgroup.tutorialmod.pink_garnet_blocks": "Blocos de Granada Rosa"
