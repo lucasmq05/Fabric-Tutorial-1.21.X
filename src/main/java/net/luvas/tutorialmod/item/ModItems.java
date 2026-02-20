@@ -14,6 +14,7 @@ public class ModItems {
     public static final Item RAW_PINK_GARNET = registerItem("raw_pink_garnet", new Item(new Item.Settings()));
 
     public static final Item CHISEL = registerItem("chisel", new ChiselItem(new Item.Settings().maxDamage(32)));
+    public static final Item WOODEN_SPOON = registerItem("wooden_spoon", new Item(new Item.Settings().maxDamage(32)));
 
 
     private static Item registerItem(String name, Item item) {
@@ -26,6 +27,11 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
             entries.add(PINK_GARNET);
             entries.add(RAW_PINK_GARNET);
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
+            entries.add(CHISEL);
+            entries.add(WOODEN_SPOON);
         });
     }
 }

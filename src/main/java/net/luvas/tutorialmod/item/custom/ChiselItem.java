@@ -6,6 +6,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.item.PickaxeItem;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
@@ -24,6 +25,14 @@ public class ChiselItem extends Item {
                     Blocks.OAK_LOG, Blocks.NETHERITE_BLOCK
             );
 
+    private static final Map<Block, Block> REVERSE_CHISEL_MAP =
+            CHISEL_MAP.entrySet().stream()
+                    .collect(java.util.stream.Collectors.toMap(
+                            Map.Entry::getValue,
+                            Map.Entry::getKey
+                    ));
+
+
 
     public ChiselItem(Settings settings) {
         super(settings);
@@ -34,17 +43,36 @@ public class ChiselItem extends Item {
         World world = context.getWorld();
         Block clickedBlock = world.getBlockState(context.getBlockPos()).getBlock();
 
-        if (CHISEL_MAP.containsKey(clickedBlock)) {
+        if (context.getPlayer() == null) return ActionResult.PASS;
+
+        boolean isSneaking = context.getPlayer().isSneaking();
+
+        Map<Block, Block> activeMap = isSneaking ? REVERSE_CHISEL_MAP : CHISEL_MAP;
+
+        if (activeMap.containsKey(clickedBlock)) {
             if (!world.isClient()) {
-                world.setBlockState(context.getBlockPos(), CHISEL_MAP.get(clickedBlock).getDefaultState());
+                world.setBlockState(
+                        context.getBlockPos(),
+                        activeMap.get(clickedBlock).getDefaultState()
+                );
 
-                context.getStack().damage(1, ((ServerWorld) world), ((ServerPlayerEntity) context.getPlayer()),
-                        item -> context.getPlayer().sendEquipmentBreakStatus(item, EquipmentSlot.MAINHAND));
+                context.getStack().damage(1,
+                        (ServerWorld) world,
+                        (ServerPlayerEntity) context.getPlayer(),
+                        item -> context.getPlayer()
+                                .sendEquipmentBreakStatus(item, EquipmentSlot.MAINHAND)
+                );
 
-                world.playSound(null, context.getBlockPos(), SoundEvents.BLOCK_GRINDSTONE_USE, SoundCategory.BLOCKS);
+                world.playSound(null,
+                        context.getBlockPos(),
+                        SoundEvents.BLOCK_GRINDSTONE_USE,
+                        SoundCategory.BLOCKS
+                );
             }
+
+            return ActionResult.SUCCESS;
         }
 
-        return ActionResult.SUCCESS;
+        return ActionResult.PASS;
     }
 }
