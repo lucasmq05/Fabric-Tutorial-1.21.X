@@ -1,8 +1,13 @@
 {
   "item.tutorialmod.pink_garnet": "Pink Garnet",
   "item.tutorialmod.raw_pink_garnet": "Raw Pink Garnet",
+
   "item.tutorialmod.chisel": "Chisel",
   "item.tutorialmod.wooden_spoon": "Wooden Spoon",
+
+  "item.tutorialmod.cauliflower": "Cauliflower",
+
+  "item.tutorialmod.starlight_ashes": "Starlight Ashes",
 
   "block.tutorialmod.pink_garnet_block": "Block of Pink Garnet",
   "block.tutorialmod.raw_pink_garnet_block": "Block of Raw Garnet Block",

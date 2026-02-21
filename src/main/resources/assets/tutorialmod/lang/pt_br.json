@@ -1,8 +1,13 @@
 {
   "item.tutorialmod.pink_garnet": "Granada Rosa",
   "item.tutorialmod.raw_pink_garnet": "Granada Rosa Bruta",
+
   "item.tutorialmod.chisel": "Cinzel",
   "item.tutorialmod.wooden_spoon": "Colher de Pau",
+
+  "item.tutorialmod.cauliflower": "Couve-flor",
+
+  "item.tutorialmod.starlight_ashes": "Cinzas de Luz Estelar",
 
   "block.tutorialmod.pink_garnet_block": "Bloco de Granada Rosa",
   "block.tutorialmod.raw_pink_garnet_block": "Bloco de Granada Rosa Bruta",
